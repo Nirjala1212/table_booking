@@ -253,12 +253,53 @@ body{
   margin: 0;
   padding-top: var(--navH);
 }
-.btn-outline {
-  border: 2px solid #fff;
-  background: transparent;
-  color: #bb8888;
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
+.nav-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.04);
+
+  transition: 0.2s ease;
+}
+.nav-pill:hover{
+  color: #fff;
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.30);
+}
+.btn-outline{
+  background: transparent;
+}
+
+.btn-primary{
+  background: #2563eb;
+  border-color: transparent;
+  color: #fff;
+}
+.btn-primary:hover{
+  background: #1d4ed8;
+}
+.nav-pill.active{
+  background: #1e40af;
+  border-color: transparent;
+  color: #fff;
+}
 .btn-outline:hover {
   background: #fff;
   color: #000;
