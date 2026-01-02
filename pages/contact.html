@@ -15,9 +15,89 @@
       align-items:center;
       justify-content:center;
     }
+    
+    .contact-box{
+      background:#ffffff;
+      width:100%;
+      max-width:480px;
+      padding:32px;
+      border-radius:14px;
+      box-shadow:0 12px 32px rgba(0,0,0,.25);
+      text-align:center;
+    }
+
+    .contact-box h1{
+      margin:0 0 10px;
+      font-size:30px;
+    }
+    .contact-box p{
+      margin:0 0 24px;
+      color:#6b7280;
+      font-size:15px;
+    }
+
+    .contact-box input,
+    .contact-box textarea{
+      width:100%;
+      padding:12px;
+      margin-bottom:14px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      font-size:14px;
+      resize:none;
+    }
+    
+    .contact-box input:focus,
+    .contact-box textarea:focus{
+      outline:none;
+      border-color:#1e40af;
+    }
+
+    .contact-box button{
+      width:100%;
+      padding:12px;
+      background:#1e40af;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      font-size:15px;
+      cursor:pointer;
+      transition:.3s;
+    }
+    
+    .contact-box button:hover{
+      background:#162f8c;
+    }
+
+    .contact-info{
+      margin-top:18px;
+      font-size:14px;
+      color:#374151;
+    }
+
+    .contact-info span{
+      display:block;
+      margin-top:6px;
+    }
     </style>
 </head>
 <body>
-    
+    <div class="contact-box">
+    <h1>Contact Us </h1>
+    <p>Have a question or feedback? We’d love to hear from you.</p>
+
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <span>📧 support@tablebooking.com</span>
+      <span>📞 +1 (000) 123-4567</span>
+    </div>
+  </div>
 </body>
 </html>
