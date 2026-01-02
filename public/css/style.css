@@ -118,3 +118,15 @@ role-btn{
   align-items: center;
   justify-content: center;
 }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.hero-content {
+  position: relative;
+  max-width: 700px;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
