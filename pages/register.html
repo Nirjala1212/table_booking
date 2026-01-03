@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | Lumière</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Register | table booking</title>
+    <link rel="stylesheet" href="..public/css/style.css">
     <style>
         body {
             display: flex;
@@ -68,6 +67,9 @@
     </style>
 </head>
 <body>
+  <script>
+        localStorage.removeItem('isLoggedIn');
+    </script>
     <div class="register-card">
         <h2>Create Account</h2>
         <form id="register-form">
@@ -86,7 +88,6 @@
         </p>
     </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
         const passwordInput = document.getElementById('password');
@@ -116,12 +117,7 @@
                 el.classList.add('valid');
                 el.classList.remove('invalid');
                 el.innerHTML = '<i class="fa-solid fa-check"></i> ' + el.innerText.substring(2); 
-            } else {
-                el.classList.remove('valid');
-                el.style.color = '#888'; 
-                el.innerHTML = '<i class="fa-solid fa-circle"></i> ' + el.innerText.substring(2);
             }
-            if(isValid) el.style.color = '#4cd964';
         }
 
         registerBtn.addEventListener('click', () => {
@@ -136,13 +132,24 @@
                              patterns.special.test(password);
 
             if (name && email && isStrong) {
-                localStorage.setItem('isLoggedIn', 'true');
-                alert('Registration Successful! Welcome to Lumière.');
-                window.location.href = 'landing_home.html';
-            } else if (!name || !email) {
-                alert('Please fill in all fields.');
+            const user = { email: email, password: password, name: name };
+            localStorage.setItem('registeredUser', JSON.stringify(user));
+             localStorage.setItem('registrationSuccess', 'true');
             } else {
-                alert('Password does not meet all requirements.');
+                let errorDiv = document.getElementById('error-msg');
+                if (!errorDiv) {
+                    errorDiv = document.createElement('div');
+                    errorDiv.id = 'error-msg';
+                    errorDiv.style.color = '#ff3b30';
+                    errorDiv.style.fontSize = '0.9rem';
+                    errorDiv.style.marginTop = '1rem';
+                    document.querySelector('.register-card').appendChild(errorDiv);
+                }
+            } else if (!name || !email) {
+            errorDiv.textContent = 'Please fill in all fields.';
+            } else {
+               errorDiv.textContent = 'Password does not meet requirements.';
+
             }
         });
     </script>
