@@ -3,99 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register | Lumière</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #720b6d, #1e40af);
-      min-height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }  
-    
-    .register-box{
-      background:#ffffff;
-      width:100%;
-      max-width:420px;
-      padding:30px;
-      border-radius:12px;
-      box-shadow:0 10px 30px rgba(0,0,0,.2);
-      text-align:center;
-    }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #0a0e14;
+        }
+        .register-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+        .register-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+            margin-bottom: 2rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+        .password-requirements {
+            text-align: left;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+        .password-requirements li {
+            list-style: none;
+            margin-bottom: 0.2rem;
+        }
+        .valid { color: #4cd964; }
+        .invalid { color: #ff3b30; }
 
-    .register-box h1{
-      margin:0 0 8px;
-      font-size:28px;
-    }
-
-    .register-box p{
-      margin:0 0 22px;
-      color:#6b7280;
-      font-size:14px;
-    }
-     .register-box input{
-      width:100%;
-      padding:12px;
-      margin-bottom:14px;
-      border:1px solid #d1d5db;
-      border-radius:8px;
-      font-size:14px;
-    }
-
-    .register-box input:focus{
-      outline:none;
-      border-color:#1e40af;
-    }
-
-    .register-box button{
-      width:100%;
-      padding:12px;
-      background:#1e40af;
-      color:#fff;
-      border:none;
-      border-radius:8px;
-      font-size:15px;
-      cursor:pointer;
-      transition:.3s;
-    }
-    .register-box button:hover{
-      background:#162f8c;
-    }
-
-    .register-links{
-      margin-top:15px;
-      font-size:14px;
-    }
-
-    .register-links a{
-      color:#1e40af;
-      text-decoration:none;
-    }
-
-    .register-links a:hover{
-      text-decoration:underline;
-    }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #d4af37;
+            color: #0a0e14;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #b5952f;
+        }
     </style>
 </head>
 <body>
-    <div class="register-box">
-    <h1>Create Account </h1>
-    <p>Join us and book tables easily</p>
+    <div class="register-card">
+        <h2>Create Account</h2>
+        <form id="register-form">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            
 
-    <form action="#" method="post">
-      <input type="text" name="fullname" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-
-      <button type="submit">Register</button>
-    </form>
-    <div class="register-links">
-      <p>Already have an account? <a href="login.html">Login</a></p>
+            <button type="button" id="register-action-btn">Register</button>
+        </form>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
+            Already have an account? <a href="login.html">Login here</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #888;">
+             <a href="landing_home.html">Back to Home</a>
+        </p>
     </div>
-  </div>
 
+    <!-- Font Awesome for icons in list -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const registerBtn = document.getElementById('register-action-btn');
+
+        // Regex Patterns
+        const patterns = {
+            length: /.{8,}/,
+            upper: /[A-Z]/,
+            lower: /[a-z]/,
+            number: /[0-9]/,
+            special: /[!@#$%^&*]/
+        };
+
+        // Real-time Validation
+        passwordInput.addEventListener('input', () => {
+            const val = passwordInput.value;
+            
+            updateRequirement('req-length', patterns.length.test(val));
+            updateRequirement('req-upper', patterns.upper.test(val));
+            updateRequirement('req-lower', patterns.lower.test(val));
+            updateRequirement('req-number', patterns.number.test(val));
+            updateRequirement('req-special', patterns.special.test(val));
+        });
+
+        function updateRequirement(id, isValid) {
+            const el = document.getElementById(id);
+            if (isValid) {
+                el.classList.add('valid');
+                el.classList.remove('invalid');
+                el.innerHTML = '<i class="fa-solid fa-check"></i> ' + el.innerText.substring(2); 
+            } else {
+                el.classList.remove('valid');
+                // Don't add invalid class necessarily, just keep gray until met? Or use color.
+                // Let's stick to gray/green for simplicity to avoid overwhelming red.
+                el.style.color = '#888'; 
+                el.innerHTML = '<i class="fa-solid fa-circle"></i> ' + el.innerText.substring(2);
+            }
+            if(isValid) el.style.color = '#4cd964';
+        }
+
+        registerBtn.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = passwordInput.value;
+
+            // Final Validation Check
+            const isStrong = patterns.length.test(password) &&
+                             patterns.upper.test(password) &&
+                             patterns.lower.test(password) &&
+                             patterns.number.test(password) &&
+                             patterns.special.test(password);
+
+            if (name && email && isStrong) {
+                // Simulate Registration
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Registration Successful! Welcome to Lumière.');
+                window.location.href = 'landing_home.html';
+            } else if (!name || !email) {
+                alert('Please fill in all fields.');
+            } else {
+                alert('Password does not meet all requirements.');
+            }
+        });
+    </script>
 </body>
 </html>
