@@ -86,14 +86,12 @@
         </p>
     </div>
 
-    <!-- Font Awesome for icons in list -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
         const passwordInput = document.getElementById('password');
         const registerBtn = document.getElementById('register-action-btn');
 
-        // Regex Patterns
         const patterns = {
             length: /.{8,}/,
             upper: /[A-Z]/,
@@ -102,7 +100,6 @@
             special: /[!@#$%^&*]/
         };
 
-        // Real-time Validation
         passwordInput.addEventListener('input', () => {
             const val = passwordInput.value;
             
@@ -121,8 +118,6 @@
                 el.innerHTML = '<i class="fa-solid fa-check"></i> ' + el.innerText.substring(2); 
             } else {
                 el.classList.remove('valid');
-                // Don't add invalid class necessarily, just keep gray until met? Or use color.
-                // Let's stick to gray/green for simplicity to avoid overwhelming red.
                 el.style.color = '#888'; 
                 el.innerHTML = '<i class="fa-solid fa-circle"></i> ' + el.innerText.substring(2);
             }
@@ -134,7 +129,6 @@
             const email = document.getElementById('email').value;
             const password = passwordInput.value;
 
-            // Final Validation Check
             const isStrong = patterns.length.test(password) &&
                              patterns.upper.test(password) &&
                              patterns.lower.test(password) &&
@@ -142,7 +136,6 @@
                              patterns.special.test(password);
 
             if (name && email && isStrong) {
-                // Simulate Registration
                 localStorage.setItem('isLoggedIn', 'true');
                 alert('Registration Successful! Welcome to Lumière.');
                 window.location.href = 'landing_home.html';
