@@ -14,11 +14,74 @@
       align-items:center;
       justify-content:center;
     }  
+    
+    .register-box{
+      background:#ffffff;
+      width:100%;
+      max-width:420px;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+      text-align:center;
+    }
+
+    .register-box h1{
+      margin:0 0 8px;
+      font-size:28px;
+    }
+
+    .register-box p{
+      margin:0 0 22px;
+      color:#6b7280;
+      font-size:14px;
+    }
+     .register-box input{
+      width:100%;
+      padding:12px;
+      margin-bottom:14px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .register-box input:focus{
+      outline:none;
+      border-color:#1e40af;
+    }
+
+    .register-box button{
+      width:100%;
+      padding:12px;
+      background:#1e40af;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      font-size:15px;
+      cursor:pointer;
+      transition:.3s;
+    }
+    .register-box button:hover{
+      background:#162f8c;
+    }
+
+    .register-links{
+      margin-top:15px;
+      font-size:14px;
+    }
+
+    .register-links a{
+      color:#1e40af;
+      text-decoration:none;
+    }
+
+    .register-links a:hover{
+      text-decoration:underline;
+    }
     </style>
 </head>
 <body>
     <div class="register-box">
-    <h1>Create Account 🎉</h1>
+    <h1>Create Account </h1>
     <p>Join us and book tables easily</p>
 
     <form action="#" method="post">
@@ -29,5 +92,10 @@
 
       <button type="submit">Register</button>
     </form>
+    <div class="register-links">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
 </body>
 </html>
