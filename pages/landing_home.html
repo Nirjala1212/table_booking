@@ -1,57 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User | Table Booking</title>
+    <title>Lumière | Exquisite Dining</title>
+
     <link rel="stylesheet" href="../public/css/style.css">
+
+    <style>
+        .protected-nav {
+            display: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
+
 <body>
-    
-   <header class=" nav-absolute">
-  <div class=" container nav-inner">
-    <a class="logo" href="home.html">
-      <img src="../pages/images/logo.png" alt="logo">
-    </a> 
-   
 
-    <nav class="nav-links">
-      <a class="btn" href="login.html">Login</a>
-      <a class="btn btn-primary" href="register.html">Register</a>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <div class="hero-overlay"></div>
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>Table Booking
+        </div>
 
-  <div class="hero-content">
-    <h1>Book Your Table Effortlessly</h1>
-    <p>
-Craving good food? Skip the calls 📞 and the queues ⏳. Discover amazing restaurants, choose your vibe, pick a time, and lock in your table in just a few clicks 🖱️💥. Whether it’s a chill lunch 😌, a romantic dinner 💕, or a fun night out with friends 🎉, we make booking easy so you can focus on what really matters — eating, laughing, and enjoying every bite 😋🍷.
-      Table Booking helps you reserve tables at your favorite restaurants
-      in just a few clicks. No waiting, no calling — simple and fast.
-    </p>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#" class="protected-nav">My Booking</a></li>
+                <li><a href="#" class="protected-nav">Restaurant</a></li>
+                <li><a href="#" class="protected-nav">Contact</a></li>
+            </ul>
+        </nav>
 
+        <div class="auth-context">
+            <div id="auth-buttons" class="auth-buttons">
+                <a href="login.html" id="login-btn" class="auth-btn btn-login">Login</a>
+               <a href="register.html" id="register-btn" class="auth-btn btn-register">Register</a>
+            </div>
 
-  </div>
-</section>
-<section class="image-wrapper">
-     <img src="../pages/images/restaurant.jpg"class="hero-photo"
-     alt="Restaurant simple"></div>
-     
-</section>
- 
-<footer class="contact-section">
-      <div class="footer-col">
-        <h3>Contact Us</h3>
-        <p>Email:tablebooking123@gmail.com</p>
-        <p>Phone: +977-98XXXXXXXX</p>
-      </div>
-      </div>
+            <div id="profile-section" class="profile-section" style="display: none;">
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
 
-    <div class="footer-bottom">
-      <p>© 2026 Table Booking. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Reserve More Than a Table — Reserve an Experience</h1>
+            <p>Explore top restaurants, premium menus, and effortless bookings. 
+                We bring comfort, class,
+                 and culinary excellence together in one seamless dining journey.</p>
+            <div class="cta-wrapper">
+                <a href="#" class="cta-btn">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    
+                    <li><i class="fa-solid fa-phone"></i>023-4512345</li>
+                    <li><i class="fa-solid fa-envelope"></i> reservations@tablebooking.com</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul>
+                   <li>Sunday-Saturday(UTC +05:45)</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <ul>
+                <li>🍽️ Book Your Table in Seconds – No More Waiting!</li>  
+
+                 <li>Never Miss a Table Again | Easy Online Booking</li>
+
+                  <li>Dining Made Simple – Reserve Your Table Today</li>
+
+                 <li>Smart Dining Starts Here 🍴</li>
+                 </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Table Booking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
