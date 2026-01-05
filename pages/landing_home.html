@@ -4,43 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumière | Exquisite Dining</title>
-
+    <title> | Table Booking</title>
     <link rel="stylesheet" href="../public/css/style.css">
-
-    <style>
-        .protected-nav {
-            display: none;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-utensils"></i>Table Booking
+        <div class="logo-box">
+            <img src="../pages/images/logo.png" class="logo-image">
         </div>
 
         <nav>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#" class="protected-nav">My Booking</a></li>
-                <li><a href="#" class="protected-nav">Restaurant</a></li>
-                <li><a href="#" class="protected-nav">Contact</a></li>
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="my_booking.html" class="protected-nav">My Booking</a></li>
+                <li><a href="restaurant.html" class="protected-nav">Restaurant</a></li>
+                <li><a href="contact.html" class="protected-nav">Contact</a></li>
             </ul>
         </nav>
 
         <div class="auth-context">
             <div id="auth-buttons" class="auth-buttons">
                 <a href="login.html" id="login-btn" class="auth-btn btn-login">Login</a>
-               <a href="register.html" id="register-btn" class="auth-btn btn-register">Register</a>
+                <a href="register.html" id="register-btn" class="auth-btn btn-register">Register</a>
             </div>
-
+           
             <div id="profile-section" class="profile-section" style="display: none;">
                 <div class="avatar">
                     <i class="fa-solid fa-user"></i>
@@ -52,12 +41,14 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Reserve More Than a Table — Reserve an Experience</h1>
-            <p>Explore top restaurants, premium menus, and effortless bookings. 
-                We bring comfort, class,
-                 and culinary excellence together in one seamless dining journey.</p>
-            <div class="cta-wrapper">
-                <a href="#" class="cta-btn">Book a Table</a>
+            <h1>Reserve More Than a Table —<br>Reserve an Experience</h1>
+            <p>Explore top restaurants, premium menus, and effortless bookings.
+                We bring comfort, class, and culinary excellence together in one seamless dining journey.</p>
+            <div class="hero-search-container">
+                <input type="text" class="hero-search-input" placeholder="Find restaurant, cuisine, or location...">
+                <button class="hero-search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                </button>
             </div>
         </div>
     </section>
@@ -67,8 +58,7 @@
             <div class="footer-column">
                 <h3>Contact Us</h3>
                 <ul>
-                    
-                    <li><i class="fa-solid fa-phone"></i>023-4512345</li>
+                    <li><i class="fa-solid fa-phone"></i> 023-4512345</li>
                     <li><i class="fa-solid fa-envelope"></i> reservations@tablebooking.com</li>
                 </ul>
             </div>
@@ -76,21 +66,17 @@
             <div class="footer-column">
                 <h3>Opening Hours</h3>
                 <ul>
-                   <li>Sunday-Saturday(UTC +05:45)</li>
+                    <li>Sunday-Saturday (UTC +05:45)</li>
                 </ul>
             </div>
 
             <div class="footer-column">
                 <h3>Newsletter</h3>
                 <ul>
-                <li>🍽️ Book Your Table in Seconds – No More Waiting!</li>  
-
-                 <li>Never Miss a Table Again | Easy Online Booking</li>
-
-                  <li>Dining Made Simple – Reserve Your Table Today</li>
-
-                 <li>Smart Dining Starts Here 🍴</li>
-                 </ul>
+                    <li>🍽️ Book Your Table in Seconds</li>
+                    <li>Never Miss a Table Again</li>
+                    <li>Dining Made Simple</li>
+                </ul>
             </div>
         </div>
 
@@ -99,7 +85,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../public/js/landing_home.js"></script>
 </body>
 
 </html>
