@@ -1,157 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | table booking</title>
-    <link rel="stylesheet" href="..public/css/style.css">
+    <title>Register | Table Booking</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <style>
+        :root {
+            --bg-base: #1a120b;
+            --primary-bronze: #c08552;
+            --text-cream: #f3e9dc;
+            --text-muted: #d5c8bb;
+            --glass-border: rgba(192, 133, 82, 0.3);
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
         body {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background: #0a0e14;
-        }
-        .register-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 0;
             width: 100%;
+            background-color: var(--bg-base);
+            background-image: url('images/restaurant.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            font-family: var(--font-body);
+            box-sizing: border-box;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 18, 11, 0.92);
+            z-index: -1;
+        }
+
+        .register-card {
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            width: 90%;
             max-width: 450px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
+
         .register-card h2 {
-            font-family: 'Playfair Display', serif;
-            color: #d4af37;
+            font-family: var(--font-heading);
+            color: var(--text-cream);
+            font-size: 2.2rem;
             margin-bottom: 2rem;
+            font-weight: 600;
         }
+
+        select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-cream);
+            border: 1px solid var(--glass-border);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select option {
+            background-color: var(--bg-base);
+            color: var(--text-cream);
+        }
+
         input {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             margin-bottom: 1rem;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
+            border-radius: 6px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-cream);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary-bronze);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(192, 133, 82, 0.1);
+        }
+
+        input::placeholder {
+            color: rgba(243, 233, 220, 0.4);
+        }
+
         .password-requirements {
             text-align: left;
             font-size: 0.8rem;
-            color: #888;
+            color: var(--text-muted);
             margin-bottom: 1rem;
             padding-left: 0.5rem;
         }
+
         .password-requirements li {
             list-style: none;
             margin-bottom: 0.2rem;
         }
-        .valid { color: #4cd964; }
-        .invalid { color: #ff3b30; }
+
+        .valid {
+            color: #4cd964;
+        }
+
+        .invalid {
+            color: #ff3b30;
+        }
 
         button {
             width: 100%;
-            padding: 0.8rem;
-            background: #d4af37;
-            color: #0a0e14;
-            font-weight: bold;
+            padding: 1rem;
+            background: var(--primary-bronze);
+            color: #1a120b;
+            font-weight: 700;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
         }
+
         button:hover {
-            background: #b5952f;
+            background: #f3e9dc;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: var(--primary-bronze);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: var(--text-cream);
+            text-decoration: underline;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-bronze);
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .password-wrapper {
+            position: relative;
+            width: 100%;
         }
     </style>
 </head>
+
 <body>
-  <script>
-        localStorage.removeItem('isLoggedIn');
-    </script>
     <div class="register-card">
         <h2>Create Account</h2>
         <form id="register-form">
             <input type="text" id="name" placeholder="Full Name" required>
             <input type="email" id="email" placeholder="Email Address" required>
-            <input type="password" id="password" placeholder="Password" required>
-            
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="date" id="dob" style="color-scheme: dark;"> 
+            <input type="text" id="city" placeholder="City">
+
+            <div class="password-wrapper">
+                <input type="password" id="password" placeholder="New Password" required>
+                <span class="toggle-password" data-target="password"></span>
+            </div>
+
+            <div class="password-wrapper">
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <span class="toggle-password" data-target="confirm-password"></span>
+            </div>
+
+
+            <label
+                style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted); margin: 10px 0 14px; line-height: 1.2; justify-content: flex-start;">
+                <input type="checkbox" id="terms">
+                <span style="white-space: nowrap; margin-left: 4px;"> agree to the <a href="#">Terms &
+                        Conditions</a></span>
+            </label>
 
             <button type="button" id="register-action-btn">Register</button>
+
         </form>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
-            Already have an account? <a href="login.html">Login here</a>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+            Already have an account? <a href="login.html">Login </a>
         </p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #888;">
-             <a href="landing_home.html">Back to Home</a>
+
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+            <a href="landing_home.html">Home</a>
         </p>
     </div>
 
 
     <script>
-        const passwordInput = document.getElementById('password');
-        const registerBtn = document.getElementById('register-action-btn');
+        document.addEventListener("DOMContentLoaded", () => {
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirm-password");
+            const registerBtn = document.getElementById("register-action-btn");
 
-        const patterns = {
-            length: /.{8,}/,
-            upper: /[A-Z]/,
-            lower: /[a-z]/,
-            number: /[0-9]/,
-            special: /[!@#$%^&*]/
-        };
+            const patterns = {
+                length: /.{8,}/,
+                upper: /[A-Z]/,
+                lower: /[a-z]/,
+                number: /[0-9]/,
+                special: /[!@#$%^&*]/,
+            };
 
-        passwordInput.addEventListener('input', () => {
-            const val = passwordInput.value;
-            
-            updateRequirement('req-length', patterns.length.test(val));
-            updateRequirement('req-upper', patterns.upper.test(val));
-            updateRequirement('req-lower', patterns.lower.test(val));
-            updateRequirement('req-number', patterns.number.test(val));
-            updateRequirement('req-special', patterns.special.test(val));
-        });
-
-        function updateRequirement(id, isValid) {
-            const el = document.getElementById(id);
-            if (isValid) {
-                el.classList.add('valid');
-                el.classList.remove('invalid');
-                el.innerHTML = '<i class="fa-solid fa-check"></i> ' + el.innerText.substring(2); 
-            }
-        }
-
-        registerBtn.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = passwordInput.value;
-
-            const isStrong = patterns.length.test(password) &&
-                             patterns.upper.test(password) &&
-                             patterns.lower.test(password) &&
-                             patterns.number.test(password) &&
-                             patterns.special.test(password);
-
-            if (name && email && isStrong) {
-            const user = { email: email, password: password, name: name };
-            localStorage.setItem('registeredUser', JSON.stringify(user));
-             localStorage.setItem('registrationSuccess', 'true');
-            } else {
-                let errorDiv = document.getElementById('error-msg');
+            function showError(msg) {
+                let errorDiv = document.getElementById("error-msg");
                 if (!errorDiv) {
-                    errorDiv = document.createElement('div');
-                    errorDiv.id = 'error-msg';
-                    errorDiv.style.color = '#ff3b30';
-                    errorDiv.style.fontSize = '0.9rem';
-                    errorDiv.style.marginTop = '1rem';
-                    document.querySelector('.register-card').appendChild(errorDiv);
+                    errorDiv = document.createElement("div");
+                    errorDiv.id = "error-msg";
+                    errorDiv.style.color = "#ff3b30";
+                    errorDiv.style.fontSize = "0.9rem";
+                    errorDiv.style.marginTop = "1rem";
+                    document.querySelector(".register-card").appendChild(errorDiv);
                 }
-            } else if (!name || !email) {
-            errorDiv.textContent = 'Please fill in all fields.';
-            } else {
-               errorDiv.textContent = 'Password does not meet requirements.';
-
+                errorDiv.textContent = msg;
             }
+
+            registerBtn.addEventListener("click", () => {
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const gender = document.getElementById("gender").value;
+                const dob = document.getElementById("dob").value;
+                const city = document.getElementById("city").value.trim();
+                const terms = document.getElementById("terms").checked;
+
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+
+                if (!name || !email || !gender || !password || !confirmPassword) {
+                    showError("Please fill in all required fields.");
+                    return;
+                }
+
+                if (!terms) {
+                    showError("You must agree to the Terms & Conditions.");
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showError("Passwords do not match.");
+                    return;
+                }
+
+                const isStrong =
+                    patterns.length.test(password) &&
+                    patterns.upper.test(password) &&
+                    patterns.lower.test(password) &&
+                    patterns.number.test(password) &&
+                    patterns.special.test(password);
+
+                if (!isStrong) {
+                    showError("Password must be 8+ chars, include uppercase, lowercase, number, and special character.");
+                    return;
+                }
+
+                const user = { name, email, gender, dob, city };
+                localStorage.setItem("registeredUser", JSON.stringify(user));
+                localStorage.setItem("isLoggedIn", "true");
+
+                window.location.href = "landing_home.html";
+            });
         });
     </script>
 </body>
+
 </html>
