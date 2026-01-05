@@ -1,95 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>table Booking</title>
-    <style>
-        
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #720b6d, #1e40af);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    
-    .contact-box{
-      background:#ffffff;
-      width:100%;
-      max-width:480px;
-      padding:32px;
-      border-radius:14px;
-      box-shadow:0 12px 32px rgba(0,0,0,.25);
-      text-align:center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Table Booking</title>
+
+  <style>
+    :root {
+      --bg-base: #1a120b;
+      --primary-bronze: #c08552;
+      --text-cream: #f3e9dc;
+      --text-muted: #d5c8bb;
+      --glass-border: rgba(192, 133, 82, 0.3);
     }
 
-    .contact-box h1{
-      margin:0 0 10px;
-      font-size:30px;
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(
+        rgba(26, 18, 11, 0.92),
+        rgba(26, 18, 11, 0.92)
+      ),
+      url("../pages/images/restaurant.jpg") center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-cream);
     }
-    .contact-box p{
-      margin:0 0 24px;
-      color:#6b7280;
-      font-size:15px;
+
+    .contact-box {
+      width: 100%;
+      max-width: 460px;
+      background: rgba(26, 18, 11, 0.85);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 50px rgba(0,0,0,.55);
+      text-align: center;
+    }
+
+    .contact-box h1 {
+      margin: 0 0 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .contact-box p {
+      margin: 0 0 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
     }
 
     .contact-box input,
-    .contact-box textarea{
-      width:100%;
-      padding:12px;
-      margin-bottom:14px;
-      border:1px solid #d1d5db;
-      border-radius:8px;
-      font-size:14px;
-      resize:none;
+    .contact-box textarea {
+      width: 80%;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text-cream);
+      font-size: 0.95rem;
+      outline: none;
+      resize: none;
+      transition: 0.3s;
     }
-    
+
+    .contact-box input::placeholder,
+    .contact-box textarea::placeholder {
+      color: rgba(243,233,220,0.45);
+    }
+
     .contact-box input:focus,
-    .contact-box textarea:focus{
-      outline:none;
-      border-color:#1e40af;
+    .contact-box textarea:focus {
+      border-color: var(--primary-bronze);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 3px rgba(192,133,82,0.15);
     }
 
-    .contact-box button{
-      width:100%;
-      padding:12px;
-      background:#1e40af;
-      color:#fff;
-      border:none;
-      border-radius:8px;
-      font-size:15px;
-      cursor:pointer;
-      transition:.3s;
-    }
-    
-    .contact-box button:hover{
-      background:#162f8c;
+    .contact-box button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-bronze);
+      color: #1a120b;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .contact-info{
-      margin-top:18px;
-      font-size:14px;
-      color:#374151;
+    .contact-box button:hover {
+      background: var(--text-cream);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
     }
 
-    .contact-info span{
-      display:block;
-      margin-top:6px;
+    .contact-info {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
-    </style>
+
+    .contact-info span {
+      display: block;
+    }
+  </style>
 </head>
-<body>
-    <div class="contact-box">
-    <h1>Contact Us </h1>
-    <p>Have a question or feedback? We’d love to hear from you.</p>
 
-    <form action="#" method="post">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+<body>
+
+  <div class="contact-box">
+    <h1>Contact Us</h1>
+    <p>
+      Have a question, feedback, or special request?  
+      We’re always happy to hear from you.
+    </p>
+
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
 
       <button type="submit">Send Message</button>
     </form>
@@ -99,5 +136,6 @@
       <span>📞 +1 (000) 123-4567</span>
     </div>
   </div>
+
 </body>
 </html>
